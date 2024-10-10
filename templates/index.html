@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIRAT JSON COOKIES MULTI SERVER</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            animation: backgroundAnimation 10s infinite alternate;
+        }
+        h1 {
+            color: #5a5a5a;
+            margin-bottom: 20px;
+        }
+        input[type="file"], input[type="text"], input[type="number"], input[type="submit"] {
+            padding: 10px;
+            margin: 10px;
+            border: 2px solid #5a5a5a;
+            border-radius: 5px;
+            width: 300px;
+            transition: border-color 0.3s;
+        }
+        input[type="submit"] {
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        input[type="submit"]:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+        .task-id-section {
+            margin-top: 20px;
+        }
+        .animated {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        @keyframes backgroundAnimation {
+            0% { background-color: #f4f4f4; }
+            50% { background-color: #e0f7fa; }
+            100% { background-color: #f4f4f4; }
+        }
+        .status {
+            margin: 20px 0;
+            color: #007bff;
+        }
+        .banner {
+            background-color: #343a40;
+            color: white;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            font-size: 1.5em;
+        }
+        /* Random colors for text */
+        .rainbow-text {
+            background: linear-gradient(45deg, #FF5733, #33FF57, #3357FF, #F3FF33, #FF33A6);
+            background-clip: text;
+            color: transparent;
+            -webkit-background-clip: text;
+            animation: rainbow 3s infinite;
+        }
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        VIRAT JSON COOKIES MULTI SERVER
+    </div>
+    <h1 class="rainbow-text">Task Management</h1>
+    <form action="/" method="POST" enctype="multipart/form-data">
+        <label for="cookie_file">Upload Cookie File (.txt or .json):</label>
+        <input type="file" name="cookie_file" required>
+        <br>
+        <label for="comment_file">Upload Comment File (.txt):</label>
+        <input type="file" name="comment_file" required>
+        <br>
+        <label for="post_id">Post ID:</label>
+        <input type="text" name="post_id" required>
+        <br>
+        <label for="delay">Delay (seconds):</label>
+        <input type="number" name="delay" required>
+        <br>
+        <input type="submit" value="Start Task">
+    </form>
+
+    <div class="task-id-section">
+        <h2 class="animated">Stop a Running Task</h2>
+        <form action="/stop" method="POST">
+            <label for="stop_task_id">Enter Task ID:</label>
+            <input type="text" name="stop_task_id" placeholder="Enter Task ID to stop" required>
+            <input type="submit" value="Stop Task">
+        </form>
+    </div>
+
+    {% if task_id %}
+        <div class="status">
+            <p>Current Task ID: {{ task_id }}</p>
+        </div>
+    {% endif %}
+</body>
+</html>
