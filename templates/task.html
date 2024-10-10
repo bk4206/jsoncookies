@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Status</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #5a5a5a;
+            margin-bottom: 20px;
+        }
+        .task-id {
+            font-size: 20px;
+            color: #007bff;
+            margin: 20px 0;
+        }
+        .back-button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Task Status</h1>
+    <div class="task-id">
+        <p>Your Task ID: {{ task_id }}</p>
+    </div>
+    <a href="/" class="back-button">Back to Home</a>
+</body>
+</html>
